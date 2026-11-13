@@ -63,6 +63,126 @@
         display: block;
         margin-bottom: 2rem;
     }
+
+    /* =========================================================
+       FIX EXCLUSIVO: PLAYER DE VÍDEO NO MOBILE (SAFARI / iOS / XR)
+       ========================================================= */
+    .video-wrapper {
+        display: block !important;
+        position: relative !important;
+        width: 100% !important;
+        background: #0a0a0a !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        text-decoration: none !important;
+        -webkit-tap-highlight-color: transparent !important;
+        transform: translateZ(0) !important;
+        -webkit-transform: translateZ(0) !important;
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .video-wrapper img {
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        -webkit-object-fit: cover !important;
+    }
+
+    .video-wrapper::after {
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.88) 100%) !important;
+        pointer-events: none !important;
+        z-index: 1 !important;
+    }
+
+    .video-play-btn {
+        z-index: 4 !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        -webkit-transform: translate(-50%, -50%) !important;
+        will-change: transform !important;
+        pointer-events: none !important;
+    }
+
+    .video-text {
+        z-index: 4 !important;
+        position: absolute !important;
+        pointer-events: none !important;
+    }
+
+    /* Mobile (iPhone XR, Safari iOS até 768px) */
+    @media (max-width: 768px) {
+        .video-wrapper {
+            aspect-ratio: 16/10 !important;
+            min-height: 240px !important;
+            border-radius: 10px !important;
+        }
+
+        .video-play-btn {
+            width: 52px !important;
+            height: 52px !important;
+            font-size: 0.95rem !important;
+            top: 45% !important;
+            background: rgba(255, 255, 255, 0.18) !important;
+            border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.4) !important;
+        }
+
+        .video-text {
+            bottom: 1.1rem !important;
+            left: 1.1rem !important;
+            right: 1.1rem !important;
+        }
+
+        .video-text h3 {
+            font-size: 1.05rem !important;
+            line-height: 1.25 !important;
+            margin-bottom: 0.25rem !important;
+            color: #FFFFFF !important;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
+        }
+
+        .video-text p {
+            font-size: 0.65rem !important;
+            letter-spacing: 0.12em !important;
+            color: rgba(255, 255, 255, 0.85) !important;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
+        }
+    }
+
+    @media (max-width: 420px) {
+        .video-wrapper {
+            min-height: 230px !important;
+            aspect-ratio: 16/10 !important;
+        }
+        .video-play-btn {
+            width: 48px !important;
+            height: 48px !important;
+            font-size: 0.9rem !important;
+            top: 44% !important;
+        }
+        .video-text {
+            bottom: 0.9rem !important;
+            left: 0.9rem !important;
+            right: 0.9rem !important;
+        }
+        .video-text h3 {
+            font-size: 0.98rem !important;
+        }
+        .video-text p {
+            font-size: 0.6rem !important;
+        }
+    }
     </style>
 </head>
 
@@ -981,5 +1101,6 @@
     </script>
 </body>
 </html>
+
 
 
